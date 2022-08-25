@@ -13,7 +13,6 @@ const Header = () => {
 
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-
         {
          user && <>
             <li><Link to="/manage">Manage</Link></li>
