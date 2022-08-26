@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import fav from '../../fav.png';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -35,7 +36,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-bold text-2xl">Organic Grocer</a>
+                <a className="btn btn-ghost normal-case font-serif italic text-2xl"> <img className='h-12 w-12' src={fav} alt="" /> Organic Grocer</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
