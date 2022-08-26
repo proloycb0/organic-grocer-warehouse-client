@@ -81,7 +81,7 @@ const Inventories = () => {
                     }
                 </Slider>
             </div>
-            <p className='text-end mt-8'><button onClick={() => navigate('/manage')} className="btn btn-secondary">Manage Inventories</button></p>
+            <p className='text-end mt-8'><button onClick={() => navigate('/manage')} className="btn btn-accent text-white">Manage Inventories</button></p>
         </div>
     );
 };

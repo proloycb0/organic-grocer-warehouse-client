@@ -7,15 +7,15 @@ const Inventory = ({ inventory }) => {
     
     return (
         <div className="card bg-base-100 shadow-xl md:mr-4">
-            <figure><img src={image} alt="" /></figure>
+            <figure><img src={image} alt="" className=''/></figure>
             <div className="card-body">
-                <h2 className="card-title text-secondary-focus">{name}</h2>
+                <h2 className="card-title text-accent">{name}</h2>
                 <p><small>{description}</small></p>
                 <p><small>Price: ${price}</small></p>
                 <p><small>Quantity: {quantity} KG</small></p>
                 <p><small>Supplier: {supplier}</small></p>
                 <div className="card-actions justify-end">
-                    <button onClick={() => navigate(`/inventory/${_id}`)} className="btn btn-secondary">Update</button>
+                    <button onClick={() => navigate(`/inventory/${_id}`)} className="btn btn-accent text-white">Update</button>
                 </div>
             </div>
         </div>
