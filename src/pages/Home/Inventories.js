@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import Slider from 'react-slick';
 import Inventory from './Inventory';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 const Inventories = () => {
     const { data: inventories, isLoading } = useQuery('inventories', () => fetch('http://localhost:5000/inventory')
@@ -11,6 +12,9 @@ const Inventories = () => {
 
     const navigate = useNavigate();
 
+    if (isLoading) {
+        return <Loading />
+    }
     function SamplePrevArrow(props) {
         const { className, style, onClick } = props;
         return (
