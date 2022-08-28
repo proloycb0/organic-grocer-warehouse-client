@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import InventoryDeleteConfirm from './InventoryDeleteConfirm';
 import TableRow from './TableRow';
@@ -9,6 +10,7 @@ const ManageInventories = () => {
         .then(res => res.json())
     );
     const [deleteInventory, setDeleteInventory] = useState(null)
+    const navigate = useNavigate();
 
     if (isLoading) {
         return <Loading />
@@ -47,6 +49,7 @@ const ManageInventories = () => {
                     refetch={refetch}
                 /> 
             }
+            <p className='text-center mt-4 mb-5'><button onClick={() => navigate('/addNewItem')} className="btn btn-accent text-white">Add New Item</button></p>
         </div>
     );
 };
