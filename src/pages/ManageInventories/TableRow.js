@@ -6,7 +6,7 @@ const TableRow = ({inventory, setDeleteInventory}) => {
     return (
         <tr>
             <td className='w-72'>
-                <div class="flex items-center">
+                <div class="flex items-center space-x-3">
                     <div class="avatar">
                         <div class="mask mask-squircle w-32 h-32">
                             <img src={image} alt="" />

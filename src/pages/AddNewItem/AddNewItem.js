@@ -23,8 +23,8 @@ const AddNewItem = () => {
         })
     }
     return (
-        <div className='w-1/2 mx-auto mt-5 mb-5'>
-            <h2 className='text-center text-2xl font-bold mb-4'>Add New <span className='text-accent'>Item</span></h2>
+        <div className='lg:w-1/2 mx-auto mt-5 mb-5'>
+            <h2 className='text-center  text-2xl font-bold mb-4'>Add New <span className='text-accent'>Item</span></h2>
             <form className='form-control mx-auto max-w-xs' onSubmit={handleSubmit(onSubmit)}>
                 <input className='input input-bordered w-full max-w-xs mb-2' value={user.email} disabled {...register("email")} />
                 <input className='input input-bordered w-full max-w-xs mb-2' placeholder='Name' {...register("name", {required: true, maxLength: 20})} />
