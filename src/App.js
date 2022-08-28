@@ -10,6 +10,8 @@ import RequireAuth from "./pages/Login/RequireAuth";
 import InventoryDetail from "./pages/Home/InventoryDetail";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blogs from "./pages/Home/Blogs";
+import ManageInventories from "./pages/ManageInventories/ManageInventories";
 
 
 function App() {
@@ -19,11 +21,25 @@ function App() {
       <div className="max-w-7xl mx-auto">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/inventory/:id" element={<RequireAuth>
-            <InventoryDetail />
-          </RequireAuth>} />
+          <Route path="/inventory/:id" element={
+            <RequireAuth>
+              <InventoryDetail />
+            </RequireAuth>} />
+          <Route path="/manage" element={
+            <RequireAuth>
+              <ManageInventories />
+            </RequireAuth>} />
+          <Route path="/inventory/:id" element={
+            <RequireAuth>
+              <InventoryDetail />
+            </RequireAuth>} />
+          <Route path="/inventory/:id" element={
+            <RequireAuth>
+              <InventoryDetail />
+            </RequireAuth>} />
         </Routes>
       </div>
       <Footer />
