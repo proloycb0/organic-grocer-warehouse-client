@@ -3,6 +3,7 @@ import AdBanner from './AdBanner';
 import Banner from './Banner';
 import Blogs from './Blogs';
 import Inventories from './Inventories';
+import NewsLetter from './NewsLetter';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Inventories />
             <AdBanner />
             <Blogs />
+            <NewsLetter />
         </div>
     );
 };
