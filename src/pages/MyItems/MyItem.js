@@ -5,7 +5,7 @@ const MyItem = ({ item, setDeleteItem }) => {
 
     return (
         <div className="card bg-base-100 shadow-2xl md:mr-4 mb-5">
-            <figure><img src={image} alt="" className='' /></figure>
+            <figure><img src={image} alt="" className='max-w-sm' /></figure>
             <div className="card-body">
                 <h2 className="card-title text-accent text-xl font-bold">{name}</h2>
                 <p>{description}</p>
