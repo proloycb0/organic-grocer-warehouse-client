@@ -30,7 +30,7 @@ const Header = () => {
         </> : <Link to="/login">Login</Link>}</li>
     </>
     return (
-        <div className="navbar bg-primary text-white lg:px-20 ">
+        <div className="navbar bg-primary text-white lg:px-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -40,7 +40,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case font-serif italic text-2xl"> <img className='h-12 w-12' src={fav} alt="" /> Organic Grocer</a>
+                <a className="flex items-center justify-center pl-5 normal-case font-serif italic text-2xl"> <img className='h-12 w-12' src={fav} alt="" /> Organic Grocer</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

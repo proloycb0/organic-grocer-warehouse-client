@@ -7,7 +7,7 @@ const Inventory = ({ inventory }) => {
     
     return (
         <div className="card bg-base-100 shadow-xl md:mr-4">
-            <figure><img src={image} alt="" className=''/></figure>
+            <figure><img src={image} alt="" className='sm:max-w-xs'/></figure>
             <div className="card-body">
                 <h2 className="card-title text-accent">{name}</h2>
                 <p><small>{description}</small></p>

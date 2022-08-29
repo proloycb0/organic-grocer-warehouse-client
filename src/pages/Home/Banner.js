@@ -7,7 +7,7 @@ const Banner = () => {
         return (
           <div
             className={className}
-            style={{ ...style, display: "block", background: "#00d084", marginLeft:"1opx" }}
+            style={{ ...style, display: "block", background: "#00d084"}}
             onClick={onClick}
           />
         );
@@ -35,10 +35,10 @@ const Banner = () => {
     return (
         <Slider {...settings}>
             <div>
-                <img src={`https://i.ibb.co/DWtmLq8/slider1.webp`} alt="" className='w-screen bg-cover'/>
+                <img src={`https://i.ibb.co/DWtmLq8/slider1.webp`} alt="" className=''/>
             </div>
             <div>
-                <img src={`https://i.ibb.co/WWwkwK5/slider2.webp`} alt="" className='w-screen bg-cover'/>
+                <img src={`https://i.ibb.co/WWwkwK5/slider2.webp`} alt="" className=''/>
             </div>
         </Slider>
     );
