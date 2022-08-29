@@ -6,7 +6,7 @@ const InventoryDeleteConfirm = ({deleteInventory, setDeleteInventory, refetch}) 
     const {_id, name } = deleteInventory;
 
     const handleDelete= () => {
-        fetch(`http://localhost:5000/inventory/${_id}`, {
+        fetch(`https://agile-bastion-22481.herokuapp.com/inventory/${_id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

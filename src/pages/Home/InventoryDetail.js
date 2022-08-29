@@ -8,7 +8,7 @@ const InventoryDetail = () => {
     const [isReload, setIsReload] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory/${id}`)
+        fetch(`https://agile-bastion-22481.herokuapp.com/inventory/${id}`)
             .then(res => res.json())
             .then(data => setInventory(data))
     }, [isReload])
@@ -21,7 +21,7 @@ const InventoryDetail = () => {
         if (newQuantity > 0) {
             const updateQuantity = newQuantity - 1;
 
-            const url = `http://localhost:5000/updateQuantity/${id}`;
+            const url = `https://agile-bastion-22481.herokuapp.com/updateQuantity/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -48,7 +48,7 @@ const InventoryDetail = () => {
         if (newQuantity >= 0) {
             const updateQuantity = oldQuantity + newQuantity;
 
-            fetch(`http://localhost:5000/updateQuantity/${id}`, {
+            fetch(`https://agile-bastion-22481.herokuapp.com/updateQuantity/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",

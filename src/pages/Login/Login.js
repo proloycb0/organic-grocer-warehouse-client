@@ -25,7 +25,7 @@ const Login = () => {
 
     useEffect(() => {
         if(loginUser || gUser) {
-            fetch('http://localhost:5000/login', {
+            fetch('https://agile-bastion-22481.herokuapp.com/login', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

@@ -7,7 +7,7 @@ import ItemDeleteConfirm from './ItemDeleteConfirm';
 import MyItem from './MyItem';
 
 const MyItems = () => {
-    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('http://localhost:5000/inventory')
+    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('https://agile-bastion-22481.herokuapp.com/inventory')
         .then(res => res.json())
     );
     const [user, loading, error] = useAuthState(auth);
@@ -17,7 +17,7 @@ const MyItems = () => {
 
     useEffect(() => {
         if(user !== null) {
-            const url = 'http://localhost:5000/myInventory';
+            const url = 'https://agile-bastion-22481.herokuapp.com/myInventory';
             fetch(url, {
                 headers: {
                     'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,

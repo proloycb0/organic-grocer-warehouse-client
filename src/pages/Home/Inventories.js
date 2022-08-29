@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const Inventories = () => {
-    const { data: inventories, isLoading } = useQuery('inventories', () => fetch('http://localhost:5000/inventory')
+    const { data: inventories, isLoading } = useQuery('inventories', () => fetch('https://agile-bastion-22481.herokuapp.com/inventory')
         .then(res => res.json())
     );
 

@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 import Blog from './Blog';
 
 const Blogs = () => {
-    const { data: blogs, isLoading } = useQuery('blogs', () => fetch('http://localhost:5000/blogs')
+    const { data: blogs, isLoading } = useQuery('blogs', () => fetch('https://agile-bastion-22481.herokuapp.com/blogs')
         .then(res => res.json())
     );
 

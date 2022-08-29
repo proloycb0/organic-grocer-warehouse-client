@@ -9,7 +9,7 @@ const AddNewItem = () => {
     const [user] = useAuthState(auth);
     const {register, handleSubmit} = useForm();
     const onSubmit = (data, event) => {
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://agile-bastion-22481.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

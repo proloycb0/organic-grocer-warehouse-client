@@ -6,7 +6,7 @@ import InventoryDeleteConfirm from './InventoryDeleteConfirm';
 import TableRow from './TableRow';
 
 const ManageInventories = () => {
-    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('http://localhost:5000/inventory')
+    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('https://agile-bastion-22481.herokuapp.com/inventory')
         .then(res => res.json())
     );
     const [deleteInventory, setDeleteInventory] = useState(null)
