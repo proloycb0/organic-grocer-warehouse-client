@@ -15,6 +15,8 @@ import ManageInventories from "./pages/ManageInventories/ManageInventories";
 import AddNewItem from "./pages/AddNewItem/AddNewItem";
 import MyItems from "./pages/MyItems/MyItems";
 import Notfound from "./pages/Shared/NotFound";
+import About from "./pages/Home/About";
+import Contact from "./pages/Home/Contact";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/inventory/:id" element={

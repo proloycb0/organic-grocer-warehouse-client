@@ -16,8 +16,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-    const [user] = useAuthState(auth);
-
+    
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
@@ -25,14 +24,14 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if(loginUser) {
+        if(loginUser || gUser) {
             fetch('http://localhost:5000/login', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    email: loginUser.user.email
+                    email: loginUser.user.email || gUser.user.email
                 }),
                 
             })
@@ -43,7 +42,7 @@ const Login = () => {
             })
             
         }
-    }, [loginUser, user, from, navigate]);
+    }, [loginUser, gUser, from, navigate]);
 
     if(loading || gLoading || sending){
         return <Loading />

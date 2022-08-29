@@ -13,6 +13,7 @@ const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [items, setItems] = useState([]);
     const [deleteItem, setDeleteItem] = useState(null);
+    const [isReload, setIsReload] = useState(true);
 
     useEffect(() => {
         if(user !== null) {
@@ -25,20 +26,20 @@ const MyItems = () => {
             .then(res => res.json())
             .then(data => setItems(data))
         }
-    }, [user])
+    }, [user, isReload])
 
     if(loading || isLoading || error){
         return <Loading />
     }
-    if(items.length === 0){
+    if(items?.length === 0){
         return <Loading />
     }
     return (
-        <div className='container h-screen'>
-            <h2 className='text-center text-accent text-2xl mb-2'>My Items</h2>
-            <div className='lg:flex items-center justify-center'>
+        <div className='container mt-5 mb-5'>
+            <h2 className='text-center text-accent text-3xl mb-4'>My Items</h2>
+            <div className='lg:flex items-center justify-center gap-y-5'>
                 {
-                    items.map(item => <MyItem
+                    items?.map(item => <MyItem
                         key={item._id}
                         item={item}
                         setDeleteItem={setDeleteItem}
@@ -50,6 +51,8 @@ const MyItems = () => {
                     deleteItem={deleteItem}
                     setDeleteItem={setDeleteItem}
                     setItems={setItems}
+                    isReload={isReload}
+                    setIsReload={setIsReload}
                     refetch={refetch}
                 /> 
             }

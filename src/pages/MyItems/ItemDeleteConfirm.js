@@ -1,8 +1,9 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading';
 
 
-const ItemDeleteConfirm = ({ deleteItem, setDeleteItem, refetch, setItems}) => {
+const ItemDeleteConfirm = ({ deleteItem, setDeleteItem, refetch, setItems, isReload, setIsReload}) => {
     const {_id, name } = deleteItem;
 
     const handleDelete= () => {
@@ -11,11 +12,12 @@ const ItemDeleteConfirm = ({ deleteItem, setDeleteItem, refetch, setItems}) => {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data)
             if(data.deletedCount){
                 toast.success(`${name} is deleted`)
                 setDeleteItem(null);
-                setItems([])
                 refetch();
+                setIsReload(!isReload);
             }
         })
     }
