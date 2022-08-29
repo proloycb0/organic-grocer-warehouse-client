@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,12 +10,13 @@ const Login = () => {
     const {register, formState: {errors}, handleSubmit, getValues} = useForm();
     const [
         signInWithEmailAndPassword,
-        user,
+        loginUser,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [user] = useAuthState(auth);
 
     let signInError;
     const navigate = useNavigate();
@@ -24,10 +25,25 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if(user || gUser) {
-            navigate(from, {replace: true});
+        if(loginUser) {
+            fetch('http://localhost:5000/login', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: loginUser.user.email
+                }),
+                
+            })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem('accessToken', data.token)
+                navigate(from, {replace: true});
+            })
+            
         }
-    }, [user, gUser, from, navigate]);
+    }, [loginUser, user, from, navigate]);
 
     if(loading || gLoading || sending){
         return <Loading />

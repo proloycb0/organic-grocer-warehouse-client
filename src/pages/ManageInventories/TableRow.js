@@ -1,5 +1,4 @@
 import React from 'react';
-import Inventory from '../Home/Inventory';
 
 const TableRow = ({inventory, setDeleteInventory}) => {
     const {name, image, price, quantity, supplier} = inventory;
