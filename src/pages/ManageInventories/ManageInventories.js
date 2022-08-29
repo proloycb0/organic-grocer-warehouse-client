@@ -19,8 +19,8 @@ const ManageInventories = () => {
     return (
         <div className='mt-8'>
             <h2 className='text-2xl font-bold text-center mb-5'><span className='text-accent'>Manage</span> Inventories</h2>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-3/4 mx-auto">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-3/4 mx-auto">
                     <thead>
                         <tr>
                             <th>Name</th>

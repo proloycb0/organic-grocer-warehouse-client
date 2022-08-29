@@ -5,14 +5,14 @@ const TableRow = ({inventory, setDeleteInventory}) => {
     return (
         <tr>
             <td className='w-72'>
-                <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                        <div class="mask mask-squircle w-32 h-32">
+                <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                        <div className="mask mask-squircle w-32 h-32">
                             <img src={image} alt="" />
                         </div>
                     </div>
                     <div>
-                        <div class="font-bold text-xl text-accent">{name}</div>
+                        <div className="font-bold text-xl text-accent">{name}</div>
                     </div>
                 </div>
             </td>

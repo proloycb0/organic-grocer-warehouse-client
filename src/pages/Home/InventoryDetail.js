@@ -80,7 +80,7 @@ const InventoryDetail = () => {
             </div>
             <form className='mb-2 mt-5 text-center' onSubmit={handleQuantityForm}>
                 <h4 className='text-3xl font-semibold mb-2'><span className='text-accent'>Restock</span> The Item</h4>
-                <input type="text" name="newQuantity" placeholder="Type here" class="input input-bordered shadow-xl w-1/4 ml-2 mr-2" />
+                <input type="text" name="newQuantity" placeholder="Type here" className="input input-bordered shadow-xl w-1/4 ml-2 mr-2" />
                 <input type="submit" className='btn bg-accent text-white border-0 text-light' value="Restock" />
             </form>
             <p className='text-center mt-6'><button onClick={() => navigate('/manage')} className="btn btn-accent text-white">Manage Inventories</button></p>
