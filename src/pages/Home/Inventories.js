@@ -75,7 +75,7 @@ const Inventories = () => {
     return (
         <div className='mt-3 mb-8'>
             <h4 className='text-3xl text-center font-bold mb-8 mt-16'>Our Fruits & Vegetable</h4>
-            <div className='grid grid-cols-1'>
+            <div className='grid grid-cols-1' >
                 <Slider {...settings}>
                     {
                         inventories?.slice(0, 6).map(inventory => <Inventory

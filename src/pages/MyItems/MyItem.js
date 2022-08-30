@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdAutoDelete } from 'react-icons/md';
 
 const MyItem = ({ item, setDeleteItem }) => {
     const { name, image, description, price, quantity } = item;
@@ -12,7 +13,7 @@ const MyItem = ({ item, setDeleteItem }) => {
                 <p>Price: ${price}</p>
                 <p>Quantity: {quantity} KG</p>
                 <div className="card-actions justify-end">
-                    <label onClick={() => setDeleteItem(item)} htmlFor="delete-confirm-modal" className='btn btn-accent text-white'>Delete</label>
+                    <label onClick={() => setDeleteItem(item)} htmlFor="delete-confirm-modal" className='btn btn-accent text-white'><MdAutoDelete className='w-6 h-6 mr-1' />Delete</label>
                 </div>
             </div>
         </div>

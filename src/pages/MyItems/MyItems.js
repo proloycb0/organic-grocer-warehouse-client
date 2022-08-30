@@ -1,6 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, {useEffect, useState} from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import ItemDeleteConfirm from './ItemDeleteConfirm';
@@ -14,7 +16,7 @@ const MyItems = () => {
     const [items, setItems] = useState([]);
     const [deleteItem, setDeleteItem] = useState(null);
     const [isReload, setIsReload] = useState(true);
-
+    const navigate = useNavigate()
     useEffect(() => {
         if(user !== null) {
             const url = 'https://agile-bastion-22481.herokuapp.com/myInventory';
@@ -23,7 +25,15 @@ const MyItems = () => {
                     'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 },
             })
-            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/');
+                }
+                return res.json();
+            })
             .then(data => setItems(data))
         }
     }, [user, isReload])

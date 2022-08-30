@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
@@ -6,11 +6,25 @@ import InventoryDeleteConfirm from './InventoryDeleteConfirm';
 import TableRow from './TableRow';
 
 const ManageInventories = () => {
-    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('https://agile-bastion-22481.herokuapp.com/inventory')
+    const [deleteInventory, setDeleteInventory] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(4);
+    const navigate = useNavigate();
+    const { data: inventories, isLoading, refetch } = useQuery(['inventories', page, size], () => fetch(`https://agile-bastion-22481.herokuapp.com/inventory?page=${page}&size=${size}`)
         .then(res => res.json())
     );
-    const [deleteInventory, setDeleteInventory] = useState(null)
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('https://agile-bastion-22481.herokuapp.com/inventoryCount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.result;
+                const pages = Math.ceil(count / 4);
+                setPageCount(pages);
+            })
+    }, [])
+
 
     if (isLoading) {
         return <Loading />
@@ -32,7 +46,7 @@ const ManageInventories = () => {
                     </thead>
                     <tbody>
                         {
-                            inventories?.map(inventory => <TableRow 
+                            inventories?.map(inventory => <TableRow
                                 key={inventory._id}
                                 inventory={inventory}
                                 setDeleteInventory={setDeleteInventory}
@@ -42,12 +56,20 @@ const ManageInventories = () => {
                     </tbody>
                 </table>
             </div>
+            <div className='mt-3 text-center'>
+                {
+                    [...Array(pageCount).keys()]
+                        .map(number => <button onClick={() => setPage(number)} className={page === number ? "btn btn-sm btn-primary mr-2" : "btn btn-sm btn-accent text-white mr-2"}>{number + 1}</button>)
+                }
+                
+            </div>
+
             {
-                deleteInventory && <InventoryDeleteConfirm 
+                deleteInventory && <InventoryDeleteConfirm
                     deleteInventory={deleteInventory}
                     setDeleteInventory={setDeleteInventory}
                     refetch={refetch}
-                /> 
+                />
             }
             <p className='text-center mt-4 mb-5'><button onClick={() => navigate('/addNewItem')} className="btn btn-accent text-white">Add New Item</button></p>
         </div>

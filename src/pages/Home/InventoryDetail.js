@@ -66,7 +66,7 @@ const InventoryDetail = () => {
         }
     }
     return (
-        <div style={{ width: '32rem' }} className='mx-auto mt-3 mb-3 container'>
+        <div className='lg:max-w-lg mx-auto mt-3 mb-3 container'>
             <div className="card bg-base-100 shadow-2xl">
                 <figure><img src={image} alt="" className='w-72 h-72' /></figure>
                 <div className="card-body pt-0 pb-4">

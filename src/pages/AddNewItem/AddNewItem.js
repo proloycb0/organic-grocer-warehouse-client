@@ -31,6 +31,7 @@ const AddNewItem = () => {
                 <textarea className='input input-bordered w-full max-w-xs mb-2' placeholder='Description' {...register("description")} ></textarea>
                 <input className='input input-bordered w-full max-w-xs mb-2' placeholder='Price' type="number" {...register("price")} />
                 <input className='input input-bordered w-full max-w-xs mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
+                <input className='input input-bordered w-full max-w-xs mb-2' value={user.displayName} {...register("supplier")} />
                 <input className='input input-bordered w-full max-w-xs mb-2' placeholder='Photo Url' {...register("image")} />
                 <input className='btn btn-accent text-white' type="submit" value="Add Item" />
             </form>

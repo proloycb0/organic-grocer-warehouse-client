@@ -4,7 +4,7 @@ const Blog = ({blog}) => {
     const {_id, name, image, supplier, description} = blog
     return (
         <div className="card bg-base-100 shadow-xl md:mr-4">
-            <figure><img src={image} alt="" className='' /></figure>
+            <figure><img data-aos="zoom-in" data-aos-duration="1500" src={image} alt="" className='' /></figure>
             <p className='font-bold'>{supplier}</p>
             <div className="card-body">
                 <h2 className="card-title text-accent">{name}</h2>
