@@ -59,7 +59,7 @@ const ManageInventories = () => {
             <div className='mt-3 text-center'>
                 {
                     [...Array(pageCount).keys()]
-                        .map(number => <button onClick={() => setPage(number)} className={page === number ? "btn btn-sm btn-primary mr-2" : "btn btn-sm btn-accent text-white mr-2"}>{number + 1}</button>)
+                        .map((number, index) => <button key={index} onClick={() => setPage(number)} className={page === number ? "btn btn-sm btn-primary mr-2" : "btn btn-sm btn-accent text-white mr-2"}>{number + 1}</button>)
                 }
                 
             </div>
