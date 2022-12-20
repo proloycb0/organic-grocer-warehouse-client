@@ -1,6 +1,6 @@
 # Organic Grocer Warehouse
 
-Live site link: [https://organic-grocer-warehouse.web.app/](https://organic-grocer-warehouse.web.app/) 
+Live site link: [https://organic-grocer-warehouse.netlify.app/](https://organic-grocer-warehouse.netlify.app/) 
 
 ## This is the Organic Grocer warehouse management website.
 
