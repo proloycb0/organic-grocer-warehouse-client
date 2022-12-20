@@ -7,7 +7,7 @@ const ItemDeleteConfirm = ({ deleteItem, setDeleteItem, refetch, setItems, isRel
     const {_id, name } = deleteItem;
 
     const handleDelete= () => {
-        fetch(`https://agile-bastion-22481.herokuapp.com/inventory/${_id}`, {
+        fetch(`https://organic-grocer-warehouse-server.onrender.com/inventory/${_id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

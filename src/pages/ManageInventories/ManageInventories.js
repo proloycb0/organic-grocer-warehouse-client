@@ -11,12 +11,12 @@ const ManageInventories = () => {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(4);
     const navigate = useNavigate();
-    const { data: inventories, isLoading, refetch } = useQuery(['inventories', page, size], () => fetch(`https://agile-bastion-22481.herokuapp.com/inventory?page=${page}&size=${size}`)
+    const { data: inventories, isLoading, refetch } = useQuery(['inventories', page, size], () => fetch(`https://organic-grocer-warehouse-server.onrender.com/inventory?page=${page}&size=${size}`)
         .then(res => res.json())
     );
 
     useEffect(() => {
-        fetch('https://agile-bastion-22481.herokuapp.com/inventoryCount')
+        fetch('https://organic-grocer-warehouse-server.onrender.com/inventoryCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.result;

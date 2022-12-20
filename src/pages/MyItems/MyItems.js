@@ -9,7 +9,7 @@ import ItemDeleteConfirm from './ItemDeleteConfirm';
 import MyItem from './MyItem';
 
 const MyItems = () => {
-    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('https://agile-bastion-22481.herokuapp.com/inventory')
+    const { data: inventories, isLoading, refetch } = useQuery('inventories', () => fetch('https://organic-grocer-warehouse-server.onrender.com/inventory')
         .then(res => res.json())
     );
     const [user, loading, error] = useAuthState(auth);
@@ -19,7 +19,7 @@ const MyItems = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if(user !== null) {
-            const url = 'https://agile-bastion-22481.herokuapp.com/myInventory';
+            const url = 'https://organic-grocer-warehouse-server.onrender.com/myInventory';
             fetch(url, {
                 headers: {
                     'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
